@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>User Details</title>
+</head>
+<body>
+<div align="center">
+    <h1>User List</h1>
+    <a href="new">Create New User</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>UserID</th>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Password</th>
+                <th>Photo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product : ${listP}">
+            	<td th:text="${product.id}">User ID</td>
+                <td th:text="${product.userName}">User Name</td>
+                <td th:text="${product.eMail}">Email</td>
+                <td th:text="${product.mobileNo}">Mobile</td>
+                <td th:text="${product.password}">Password</td>
+                <td th:text="${product.photo}">Photo</td>
+                <td>
+                	<a th:href="@{'/edit/' + ${product.id}}">Edit</a>
+                	&nbsp;&nbsp;&nbsp;
+                	<a th:href="@{'/delete/' + ${product.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>    
+</body>
+</html>
